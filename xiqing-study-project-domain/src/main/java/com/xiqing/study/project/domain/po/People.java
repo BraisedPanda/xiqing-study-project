@@ -2,8 +2,13 @@ package com.xiqing.study.project.domain.po;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class People {
+public class People implements Serializable {
+
+    private static final long serialVersionUID = 5553645142587258329L;
+
     private Integer id;
 
     private String userName;

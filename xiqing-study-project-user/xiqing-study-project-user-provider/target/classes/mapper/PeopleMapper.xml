@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiqing.study.project.user.mapper.PeopleMapper">
-  <resultMap id="BaseResultMap" type="com.xiqing.study.project.user.model.po.People">
+  <resultMap id="BaseResultMap" type="com.xiqing.study.project.domain.po.People">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="user_name" jdbcType="VARCHAR" property="userName" />
     <result column="password" jdbcType="VARCHAR" property="password" />
@@ -67,7 +67,7 @@
   <sql id="Base_Column_List">
     id, user_name, password
   </sql>
-  <select id="selectByExample" parameterType="com.xiqing.study.project.user.model.po.PeopleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -92,20 +92,20 @@
     delete from user
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiqing.study.project.user.model.po.PeopleExample">
+  <delete id="deleteByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample">
     delete from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiqing.study.project.user.model.po.People">
+  <insert id="insert" parameterType="com.xiqing.study.project.domain.po.People">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into user (user_name, password)
     values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiqing.study.project.user.model.po.People">
+  <insert id="insertSelective" parameterType="com.xiqing.study.project.domain.po.People">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
@@ -127,7 +127,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiqing.study.project.user.model.po.PeopleExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample" resultType="java.lang.Long">
     select count(*) from user
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -159,7 +159,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiqing.study.project.user.model.po.People">
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiqing.study.project.domain.po.People">
     update user
     <set>
       <if test="userName != null">
@@ -171,7 +171,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiqing.study.project.user.model.po.People">
+  <update id="updateByPrimaryKey" parameterType="com.xiqing.study.project.domain.po.People">
     update user
     set user_name = #{userName,jdbcType=VARCHAR},
       password = #{password,jdbcType=VARCHAR}

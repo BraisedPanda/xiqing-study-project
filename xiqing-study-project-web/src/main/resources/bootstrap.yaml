@@ -4,21 +4,30 @@ server:
     uri-encoding: UTF-8
     max-threads: 1000
     min-spare-threads: 30
-  port: 8000
+  port: 8080
 
 
 # DataSource
 spring:
-
   application:
-    xiqing-study-project-user-provider
+    name: xiqing-study-project-web
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.100.160.53:8848
+        namespace: 56d98d62-6bbf-46d8-8e2a-f52c49c4798d
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        group: consumer
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yaml
 
   datasource:
     name: druidDataSource
     type: com.alibaba.druid.pool.DruidDataSource
     druid:
       driver-class-name: com.mysql.cj.jdbc.Driver
-      url: jdbc:mysql://localhost:3307/test01?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+      url: jdbc:mysql://localhost:3307/test01?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true&serverTimezone=UTC
       username: root
       password: 123456
       filters: stat,wall,log4j,config

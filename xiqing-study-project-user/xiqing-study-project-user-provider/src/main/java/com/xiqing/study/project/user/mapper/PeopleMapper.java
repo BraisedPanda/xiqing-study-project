@@ -1,10 +1,13 @@
 package com.xiqing.study.project.user.mapper;
 
-import com.xiqing.study.project.user.model.po.People;
-import com.xiqing.study.project.user.model.po.PeopleExample;
 import java.util.List;
+
+import com.xiqing.study.project.domain.po.People;
+import com.xiqing.study.project.domain.po.PeopleExample;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+@Mapper
 public interface PeopleMapper {
     long countByExample(PeopleExample example);
 

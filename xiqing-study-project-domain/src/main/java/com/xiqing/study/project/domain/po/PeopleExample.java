@@ -1,9 +1,11 @@
 package com.xiqing.study.project.domain.po;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PeopleExample {
+public class PeopleExample implements Serializable {
+    private static final long serialVersionUID = -8571125434667342306L;
     protected String orderByClause;
 
     protected boolean distinct;

@@ -1,0 +1,5 @@
+com\xiqing\study\project\domain\po\People.class
+com\xiqing\study\project\domain\po\PeopleExample$Criteria.class
+com\xiqing\study\project\domain\po\PeopleExample.class
+com\xiqing\study\project\domain\po\PeopleExample$Criterion.class
+com\xiqing\study\project\domain\po\PeopleExample$GeneratedCriteria.class
