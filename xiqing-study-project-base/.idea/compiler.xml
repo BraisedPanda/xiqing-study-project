@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="xiqing-study-project-mybatis-generator" />
+        <module name="xiqing-study-project-user-api" />
+        <module name="xiqing-study-project-domain" />
+        <module name="xiqing-study-project-user-provider" />
+        <module name="xiqing-study-project-web" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="xiqing-study-project-mybatis-generator1" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="xiqing-study-project-base" options="-parameters" />
+      <module name="xiqing-study-project-domain" options="-parameters" />
+      <module name="xiqing-study-project-mybatis-generator1" options="-parameters" />
+      <module name="xiqing-study-project-user" options="-parameters" />
+      <module name="xiqing-study-project-user-api" options="-parameters" />
+      <module name="xiqing-study-project-user-provider" options="-parameters" />
+      <module name="xiqing-study-project-web" options="-parameters" />
+    </option>
+  </component>
+</project>

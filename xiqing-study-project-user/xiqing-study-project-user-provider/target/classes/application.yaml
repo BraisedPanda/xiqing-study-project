@@ -1,0 +1,59 @@
+# Tomcat
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8000
+
+
+# DataSource
+spring:
+
+  application:
+    xiqing-study-project-user-provider
+
+  datasource:
+    name: druidDataSource
+    type: com.alibaba.druid.pool.DruidDataSource
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://localhost:3307/test01?useUnicode=true&characterEncoding=UTF-8&useSSL=false&rewriteBatchedStatements=true
+      username: root
+      password: 123456
+      filters: stat,wall,log4j,config
+      max-active: 100
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: select 'x'
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-open-prepared-statements: 50
+      max-pool-prepared-statement-per-connection-size: 20
+
+  redis:
+    host: 47.100.160.53
+    port: 6379
+    password:
+    jedis:
+      pool:
+        # redis连接池中的最小空闲连接,默认为0
+        min-idle: 0
+        # redis连接池最大阻塞等待时间（使用负值表示没有限制）,默认-1
+        max-wait: -1
+        # redis连接池中的最大空闲连接,默认为10
+        max-idle: 10
+        # redis连接池最大连接数（使用负值表示没有限制）,默认200
+        max-active: 200
+    lettuce:
+      shutdown-timeout: 0
+
+mybatis:
+  mapper-locations:
+    classpath: /mapper/*.xml
+
