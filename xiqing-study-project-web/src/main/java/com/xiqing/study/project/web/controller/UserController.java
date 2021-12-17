@@ -1,5 +1,6 @@
 package com.xiqing.study.project.web.controller;
 
+import com.xiqing.study.project.base.model.DataResponseBean;
 import com.xiqing.study.project.domain.po.People;
 import com.xiqing.study.project.user.service.PeopleService;
 import org.apache.dubbo.config.annotation.DubboReference;
@@ -16,8 +17,8 @@ public class UserController {
     private PeopleService peopleService;
 
     @RequestMapping("/test")
-    public  List<People> test(){
+    public DataResponseBean<List<People>> test(){
         List<People> list = peopleService.selectAll();
-        return list;
+        return  DataResponseBean.SUCCESS(list);
     }
 }

@@ -23,6 +23,11 @@
             <artifactId>xiqing-study-project-user-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiqing</groupId>
+            <artifactId>xiqing-study-project-common</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>
