@@ -9,6 +9,7 @@
         <module>../xiqing-study-project-mybatis-generator</module>
         <module>../xiqing-study-project-web</module>
         <module>../xiqing-study-project-domain</module>
+        <module>../xiqing-study-project-common</module>
     </modules>
 
     <parent>
@@ -29,7 +30,6 @@
         <druid.version>1.2.8</druid.version>
         <log4j.version>1.2.17</log4j.version>
         <mybatis.starter.version>2.2.0</mybatis.starter.version>
-        <redis.starter.version>2.5.6</redis.starter.version>
         <dubbo.version>3.0.2.1</dubbo.version>
         <springcloud.version>2.2.5.RELEASE</springcloud.version>
     </properties>
@@ -38,10 +38,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jdbc</artifactId>
         </dependency>
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-        </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -110,12 +107,8 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
-        <!--redis-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-redis</artifactId>
-            <version>${redis.starter.version}</version>
-        </dependency>
+
+
         <!-- nacos -->
 
         <dependency>

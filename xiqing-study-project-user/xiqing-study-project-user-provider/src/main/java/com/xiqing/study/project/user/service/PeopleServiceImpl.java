@@ -1,5 +1,7 @@
 package com.xiqing.study.project.user.service;
 
+import com.xiqing.project.redis.RedisUtil;
+import com.xiqing.study.project.base.model.DataResponseBean;
 import com.xiqing.study.project.domain.po.People;
 import com.xiqing.study.project.domain.po.PeopleExample;
 import com.xiqing.study.project.user.mapper.PeopleMapper;
@@ -12,10 +14,24 @@ public class PeopleServiceImpl implements PeopleService{
 
     @Autowired
     private PeopleMapper peopleMapper;
+    @Autowired
+    private RedisUtil redisUtil;
 
     @Override
-    public List<People> selectAll() {
+    public DataResponseBean<List<People>> selectAll() {
         PeopleExample peopleExample = new PeopleExample();
-        return peopleMapper.selectByExample(peopleExample);
+        List<People> list = peopleMapper.selectByExample(peopleExample);
+        return DataResponseBean.SUCCESS(list);
+    }
+
+
+    @Override
+    public DataResponseBean<People> selectById(Integer id) {
+        People people = (People) redisUtil.get(id.toString());
+        if(people == null){
+            people = peopleMapper.selectByPrimaryKey(id);
+            redisUtil.set(id.toString(), people);
+        }
+        return DataResponseBean.SUCCESS(people);
     }
 }

@@ -2,9 +2,12 @@ package com.xiqing.study.project.base.model;
 
 import lombok.Data;
 
-@Data
-public class DataResponseBean<T>{
+import java.io.Serializable;
 
+@Data
+public class DataResponseBean<T> implements Serializable {
+
+    private static final long serialVersionUID = 3616204568681861001L;
     private Integer code;
     private String message;
     private T data;

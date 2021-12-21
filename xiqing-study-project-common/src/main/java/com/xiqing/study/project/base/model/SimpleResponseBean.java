@@ -2,8 +2,11 @@ package com.xiqing.study.project.base.model;
 
 import lombok.Data;
 
+import java.io.Serializable;
+
 @Data
-public class SimpleResponseBean {
+public class SimpleResponseBean implements Serializable {
+    private static final long serialVersionUID = -475198552465551193L;
     // 响应代码
     private Integer code;
     // 响应信息

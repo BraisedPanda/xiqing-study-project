@@ -4,6 +4,8 @@ import com.xiqing.study.project.base.model.DataResponseBean;
 import com.xiqing.study.project.domain.po.People;
 import com.xiqing.study.project.user.service.PeopleService;
 import org.apache.dubbo.config.annotation.DubboReference;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,7 +20,12 @@ public class UserController {
 
     @RequestMapping("/test")
     public DataResponseBean<List<People>> test(){
-        List<People> list = peopleService.selectAll();
-        return  DataResponseBean.SUCCESS(list);
+        return peopleService.selectAll();
     }
+
+    @GetMapping("/{id}")
+    public DataResponseBean<People> selectById(@PathVariable Integer id){
+        return peopleService.selectById(id);
+    }
+
 }
