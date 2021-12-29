@@ -30,4 +30,8 @@ public interface PeopleMapper {
     int updateByPrimaryKeySelective(People record);
 
     int updateByPrimaryKey(People record);
+
+    List<People> selectAll();
+
+    void insertBatch(@Param("list") List<People> list);
 }

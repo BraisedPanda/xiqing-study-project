@@ -8,8 +8,6 @@
         <module>../xiqing-study-project-user</module>
         <module>../xiqing-study-project-mybatis-generator</module>
         <module>../xiqing-study-project-web</module>
-        <module>../xiqing-study-project-domain</module>
-        <module>../xiqing-study-project-common</module>
     </modules>
 
     <parent>
@@ -107,10 +105,7 @@
             <artifactId>mybatis</artifactId>
             <version>3.5.7</version>
         </dependency>
-
-
         <!-- nacos -->
-
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
@@ -121,6 +116,7 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
             <version>${springcloud.version}</version>
         </dependency>
+        <!-- dubbo -->
         <dependency>
             <groupId>org.apache.dubbo</groupId>
             <artifactId>dubbo-spring-boot-starter</artifactId>

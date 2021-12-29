@@ -27,6 +27,11 @@
             <artifactId>starter-xiqing-project-redis</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
+        <dependency>
+            <groupId>com.xiqing</groupId>
+            <artifactId>starter-xiqing-project-elasticsearch</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
 </project>

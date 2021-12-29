@@ -8,20 +8,18 @@
     <artifactId>xiqing-study-project-domain</artifactId>
     <version>1.0-SNAPSHOT</version>
 
-    <parent>
-        <artifactId>xiqing-study-project-base</artifactId>
-        <groupId>com.xiqing</groupId>
-        <version>1.0-SNAPSHOT</version>
-        <relativePath>../xiqing-study-project-base/pom.xml</relativePath>
-    </parent>
-
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <lombok.version>1.18.20</lombok.version>
     </properties>
 
     <dependencies>
-
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>${lombok.version}</version>
+        </dependency>
     </dependencies>
 
 </project>
