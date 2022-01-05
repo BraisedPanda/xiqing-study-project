@@ -25,7 +25,7 @@
         </javaTypeResolver>
 
         <!-- 生成模型的包名和位置-->
-        <javaModelGenerator targetPackage="com.xiqing.study.project.user.model.po" targetProject="${po}">
+        <javaModelGenerator targetPackage="com.xiqing.study.project.domain.po" targetProject="${po}">
             <property name="enableSubPackages" value="true"/>
             <property name="trimStrings" value="true"/>
         </javaModelGenerator>
@@ -34,12 +34,12 @@
             <property name="enableSubPackages" value="true"/>
         </sqlMapGenerator>
         <!--生成mapper的包名和位置-->
-        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiqing.study.project.user.mapper" targetProject="${mapper}">
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.xiqing.study.project.book.mapper" targetProject="${mapper}">
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
         <!-- tableName：数据库中的表名或视图名；domainObjectName：生成的实体类的类名-->
-        <table tableName="user" domainObjectName="People"
+        <table tableName="book" domainObjectName="Book"
                enableCountByExample="true"
                enableUpdateByExample="true"
                enableDeleteByExample="true"
