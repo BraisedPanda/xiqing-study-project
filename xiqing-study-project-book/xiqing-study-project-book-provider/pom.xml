@@ -3,14 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>xiqing-study-project-base</artifactId>
+        <artifactId>xiqing-study-project-book</artifactId>
         <groupId>com.xiqing</groupId>
         <version>1.0-SNAPSHOT</version>
-        <relativePath>../xiqing-study-project-base/pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>xiqing-study-project-web</artifactId>
+    <artifactId>xiqing-study-project-book-provider</artifactId>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
@@ -20,17 +19,17 @@
     <dependencies>
         <dependency>
             <groupId>com.xiqing</groupId>
-            <artifactId>xiqing-study-project-user-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
-        <dependency>
-            <groupId>com.xiqing</groupId>
             <artifactId>xiqing-study-project-book-api</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>com.xiqing</groupId>
-            <artifactId>xiqing-study-project-common</artifactId>
+            <artifactId>starter-xiqing-project-redis</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.xiqing</groupId>
+            <artifactId>starter-xiqing-project-elasticsearch</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
     </dependencies>

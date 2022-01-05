@@ -1,0 +1,22 @@
+spring:
+  application:
+    name: xiqing-study-project-book-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 47.100.160.53:8848
+        namespace: 56d98d62-6bbf-46d8-8e2a-f52c49c4798d
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        group: provider
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        file-extension: yaml
+
+
+server:
+  port: 8100
+
+mybatis:
+  mapper-locations:
+    classpath: /mapper/*.xml
+

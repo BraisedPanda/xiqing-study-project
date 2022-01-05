@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.xiqing.study.project.user.mapper.PeopleMapper">
-  <resultMap id="BaseResultMap" type="com.xiqing.study.project.domain.po.People">
+<mapper namespace="com.xiqing.study.project.book.mapper.BookMapper">
+  <resultMap id="BaseResultMap" type="com.xiqing.study.project.domain.po.Book">
     <id column="id" jdbcType="INTEGER" property="id" />
-    <result column="user_name" jdbcType="VARCHAR" property="userName" />
-    <result column="password" jdbcType="VARCHAR" property="password" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="author" jdbcType="VARCHAR" property="author" />
+    <result column="book_describe" jdbcType="VARCHAR" property="bookDescribe" />
+    <result column="price" jdbcType="DECIMAL" property="price" />
+    <result column="create_date" jdbcType="TIMESTAMP" property="createDate" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -65,16 +68,16 @@
     </where>
   </sql>
   <sql id="Base_Column_List">
-    id, user_name, password
+    id, title, author, book_describe, price, create_date
   </sql>
-  <select id="selectByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.xiqing.study.project.domain.po.BookExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
     </if>
     'true' as QUERYID,
     <include refid="Base_Column_List" />
-    from user
+    from book
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
@@ -85,65 +88,94 @@
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
     <include refid="Base_Column_List" />
-    from user
+    from book
     where id = #{id,jdbcType=INTEGER}
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from user
+    delete from book
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample">
-    delete from user
+  <delete id="deleteByExample" parameterType="com.xiqing.study.project.domain.po.BookExample">
+    delete from book
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiqing.study.project.domain.po.People">
+  <insert id="insert" parameterType="com.xiqing.study.project.domain.po.Book">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user (user_name, password)
-    values (#{userName,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    insert into book (title, author, book_describe, 
+      price, create_date)
+    values (#{title,jdbcType=VARCHAR}, #{author,jdbcType=VARCHAR}, #{bookDescribe,jdbcType=VARCHAR}, 
+      #{price,jdbcType=DECIMAL}, #{createDate,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiqing.study.project.domain.po.People">
+  <insert id="insertSelective" parameterType="com.xiqing.study.project.domain.po.Book">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
-    insert into user
+    insert into book
     <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="userName != null">
-        user_name,
+      <if test="title != null">
+        title,
       </if>
-      <if test="password != null">
-        password,
+      <if test="author != null">
+        author,
+      </if>
+      <if test="bookDescribe != null">
+        book_describe,
+      </if>
+      <if test="price != null">
+        price,
+      </if>
+      <if test="createDate != null">
+        create_date,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="userName != null">
-        #{userName,jdbcType=VARCHAR},
+      <if test="title != null">
+        #{title,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        #{password,jdbcType=VARCHAR},
+      <if test="author != null">
+        #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="bookDescribe != null">
+        #{bookDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        #{createDate,jdbcType=TIMESTAMP},
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiqing.study.project.domain.po.PeopleExample" resultType="java.lang.Long">
-    select count(*) from user
+  <select id="countByExample" parameterType="com.xiqing.study.project.domain.po.BookExample" resultType="java.lang.Long">
+    select count(*) from book
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </select>
   <update id="updateByExampleSelective" parameterType="map">
-    update user
+    update book
     <set>
       <if test="record.id != null">
         id = #{record.id,jdbcType=INTEGER},
       </if>
-      <if test="record.userName != null">
-        user_name = #{record.userName,jdbcType=VARCHAR},
+      <if test="record.title != null">
+        title = #{record.title,jdbcType=VARCHAR},
       </if>
-      <if test="record.password != null">
-        password = #{record.password,jdbcType=VARCHAR},
+      <if test="record.author != null">
+        author = #{record.author,jdbcType=VARCHAR},
+      </if>
+      <if test="record.bookDescribe != null">
+        book_describe = #{record.bookDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="record.price != null">
+        price = #{record.price,jdbcType=DECIMAL},
+      </if>
+      <if test="record.createDate != null">
+        create_date = #{record.createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     <if test="_parameter != null">
@@ -151,30 +183,45 @@
     </if>
   </update>
   <update id="updateByExample" parameterType="map">
-    update user
+    update book
     set id = #{record.id,jdbcType=INTEGER},
-      user_name = #{record.userName,jdbcType=VARCHAR},
-      password = #{record.password,jdbcType=VARCHAR}
+      title = #{record.title,jdbcType=VARCHAR},
+      author = #{record.author,jdbcType=VARCHAR},
+      book_describe = #{record.bookDescribe,jdbcType=VARCHAR},
+      price = #{record.price,jdbcType=DECIMAL},
+      create_date = #{record.createDate,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiqing.study.project.domain.po.People">
-    update user
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiqing.study.project.domain.po.Book">
+    update book
     <set>
-      <if test="userName != null">
-        user_name = #{userName,jdbcType=VARCHAR},
+      <if test="title != null">
+        title = #{title,jdbcType=VARCHAR},
       </if>
-      <if test="password != null">
-        password = #{password,jdbcType=VARCHAR},
+      <if test="author != null">
+        author = #{author,jdbcType=VARCHAR},
+      </if>
+      <if test="bookDescribe != null">
+        book_describe = #{bookDescribe,jdbcType=VARCHAR},
+      </if>
+      <if test="price != null">
+        price = #{price,jdbcType=DECIMAL},
+      </if>
+      <if test="createDate != null">
+        create_date = #{createDate,jdbcType=TIMESTAMP},
       </if>
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiqing.study.project.domain.po.People">
-    update user
-    set user_name = #{userName,jdbcType=VARCHAR},
-      password = #{password,jdbcType=VARCHAR}
+  <update id="updateByPrimaryKey" parameterType="com.xiqing.study.project.domain.po.Book">
+    update book
+    set title = #{title,jdbcType=VARCHAR},
+      author = #{author,jdbcType=VARCHAR},
+      book_describe = #{bookDescribe,jdbcType=VARCHAR},
+      price = #{price,jdbcType=DECIMAL},
+      create_date = #{createDate,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>
